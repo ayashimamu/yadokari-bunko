@@ -35,10 +35,25 @@ $(function () {
       asNavFor: '#slider-bottom'
     });
     $('#slider-bottom').slick({
-      slidesToShow: 4,
+      slidesToShow: 3,
       slidesToScroll: 1,
       asNavFor: '#slider-top',
       centerMode: true,
       focusOnSelect: true,
+      dots: true
   });
 });
+$(function () {
+    $(window).scroll(function () {
+        const wHeight = $(window).height();
+      const scrollAmount = $(window).scrollTop();
+        $('.scrollanime').each(function () {
+          const targetPosition = $(this).
+         offset().top;
+            if(scrollAmount > targetPosition - wHeight + 60) {
+              $(this).addClass("fadeInDown");
+            }
+        });
+    });
+});
+

@@ -50,7 +50,13 @@ a {
     vertical-align:baseline;
     background:transparent;
 }
-
+button{
+  cursor: pointer;
+  outline: none;
+}
+button:hover{
+  outline:none;
+}
 /* change colours to suit your needs */
 ins {
     background-color:#ff9;
@@ -105,7 +111,23 @@ p{
 .section{
   margin-top: 1%;
 }
-
+.scrollanime{
+  opacity: 0;
+}
+.fadeInDown{
+  animation-name: fadeInDown;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInDown{
+   0% {
+        opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    transform: translate(0);
+    }
+}
 .inner{
   padding-left: 5%;
   padding-top: 1%;
@@ -126,10 +148,14 @@ p{
   width: 90%;
   margin-top: 5%;
   margin-right:2%;
+  display: block;
 }
 .rightcontent-menu{
   margin-top: 35%;
   margin-right: -6%;
+  height: 100%;
+  display: block;
+  position: relative;
 }
 .mokuji{
   margin-top: -5%;
@@ -147,19 +173,29 @@ p{
     -ms-writing-mode: tb-rl ;
     -webkit-writing-mode:vertical-rl ;
 }
+.sns-icons{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  margin-top: 50%;
+}
 .eyecatch-image{
   position: relative;
+  animation: swing linear 5s infinite;
+  transform-origin: center -50px 0;
 }
 .white-book{
   width: 80%;
   margin-left: 10%;
-  border: 3px solid #754620;
+  border: 3px solid black;
+  background-image:url(../img/wood-texture_00005.jpg);
   border-style: dashed;
   border-radius: 20px;
 }
 .eyecatch{
   margin-top:0%;
-  height: auto;
+  height: 100vh;
 }
 .eyecatch-title{
   width: 30%;
@@ -188,7 +224,7 @@ p{
   margin-top: 10%;
   width: 100%;
   height: 40%;
-  border: 3px solid #754620;
+  border: 3px solid black;
   border-radius: 20px;
 }
 .book-vertical{
@@ -200,10 +236,23 @@ p{
   font-size: 20px;
 }
 .eyecatch-word{
-  color: #AD1E1E;
+  color: #754620;
   position: absolute;
-  top: 87%;
-  left: 13%;
+  font-size: 15px;
+  top: 5%;
+  right:15%;
+}
+.tsubaki{
+  width: 25%;
+  position: absolute;
+  top: 70%;
+}
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
 }
 .firstcontent{
   background-image: url(../img/bookshlef.jpg);
@@ -240,17 +289,39 @@ p{
   border-bottom-right-radius: 50px;
   border: 3px solid #754620;
   border-left: none;
+  color: white;
+  position: relative;
+}
+.introduction::before{
+  position: absolute;
+  background-color: rgba(0,0,0,0.2);
+   border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.introduction-title{
+  position: relative;
+  z-index: 1;
 }
 .introduction p{
   margin-top: 15%;
   margin-left: 5%;
   width: 30%;
+  position: relative;
+  z-index: 1;
 }
 .introduction-buttons{
   width: 30%;
   margin: 10% 35%;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 .introduction-buttons button{
   font-size: 20px;
@@ -258,6 +329,11 @@ p{
  background:none;
  border:white 1px solid;
 border-style: dashed;
+}
+.introduction-buttons button:hover{
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: rgba(0,0,0,0.5) 1px solid;
 }
 .meals-service{
   background-image:url(../img/sweets-and-book.jpg);
@@ -316,21 +392,29 @@ border-style: dashed;
   border-bottom:  2px solid #754620;
 }
 #slider-top{
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
+}
+#slider-top img{
+  height: 650px;
+  object-fit: cover;
+  border: 5px solid #754620;
+  border-radius: 20px;
+
 }
 #slider-bottom{
-  width: 100%;
-  height: 20vh;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  margin-bottom: 5%;
 }
 #slider-bottom img{
-  height: 150px;
   object-fit: cover;
+  width: 30%;
+  height: 150px;
 }
-.slick-slide img{
-  width: 20%;
-  margin: 10px;
+.slick-slide{
+  margin:1% 0.1%;
 }
 .roomguide p{
   font-size: 15px;
@@ -441,6 +525,10 @@ border-style: dashed;
   border-radius: 20px;
   font-family: "Kokoro";
 }
+.resevation-button:hover{
+  background-color: #754620;
+  color: white;
+}
 footer{
   width: 50%;
   margin-left: 25%;
@@ -486,11 +574,13 @@ input{
   width: 50%;
   border: #754620 2px solid;
   border-radius: 10px;
+  outline: none;
 }
 textarea{
   width: 50%;
   border: #754620 2px solid;
   border-radius: 10px;
+  outline: none;
 }
 .sendbutton{
   width: 30%;
@@ -501,6 +591,10 @@ textarea{
   background-color:rgba(0,0,0,0);
   border: #754620 2px solid;
   font-family: "Kokoro";
+}
+.sendbutton:hover{
+  background-color: #754620;
+  color: white;
 }
 .contactpage-title{
   font-size: 30px;
@@ -592,8 +686,8 @@ textarea{
     z-index: 2;
   }
   .hamburger-menu-content{
-    width: 40%;
-    margin-left: 30%;
+    width: 50%;
+    margin-left: 25%;
     margin-top: 20%;
   }
   .js_smooth_scroll_hamburger{
@@ -660,6 +754,10 @@ textarea{
   }
   .roomguide-service-content-left{
     border-right: none;
+  }
+  #slider-top,#slider-bottom{
+    width: 100%;
+    margin-left: 0%;
   }
   .detail{
     height: 300vh;
