@@ -21,7 +21,7 @@ time, mark, audio, video {
 
 body {
     line-height:1.5;
-    font-family:"Kokoro";
+    font-family:"Sawarabi Mincho";
     display: flex;
 }
 
@@ -50,7 +50,13 @@ a {
     vertical-align:baseline;
     background:transparent;
 }
-
+button{
+  cursor: pointer;
+  outline: none;
+}
+button:hover{
+  outline:none;
+}
 /* change colours to suit your needs */
 ins {
     background-color:#ff9;
@@ -105,12 +111,29 @@ p{
 .section{
   margin-top: 1%;
 }
+.scrollanime{
+  opacity: 0;
+}
+.fadeInDown{
+  animation-name: fadeInDown;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInDown{
+   0% {
+        opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    transform: translate(0);
+    }
+}
 .inner{
   padding-left: 5%;
   padding-top: 1%;
 }
 .leftcontent{
-  background-image: url(../img/background-image.jpg);
+  background-image: url(../img/backgroound-image.jpg);
   width: 80%;
 }
 .rightcontent{
@@ -122,39 +145,57 @@ p{
   height: 100%;
 }
 .rightcontent-inner{
-  display: block;
+  width: 90%;
   margin-top: 5%;
+  margin-right:2%;
+  display: block;
 }
 .rightcontent-menu{
-  margin-top: 30%;
-  width: 90%;
-  margin-left: 5%;
+  margin-top: 35%;
+  margin-right: -6%;
+  height: 100%;
+  display: block;
+  position: relative;
 }
 .mokuji{
-  margin-top: -3%;
+  margin-top: -5%;
 }
 .mokuji-contents{
-   writing-mode: vertical-rl;
-    -ms-writing-mode: tb-rl;
-    -webkit-writing-mode:vertical-rl;
+  height: 150px;
+  width: 90%;
 }
 .mokuji-item{
+  font-size: 16px;
   border:0;
+  width:3%;
   background-color: rgba(0,0,0,0);
   writing-mode: vertical-rl ;
     -ms-writing-mode: tb-rl ;
     -webkit-writing-mode:vertical-rl ;
 }
+.sns-icons{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  margin-top: 50%;
+}
 .eyecatch-image{
   position: relative;
+  animation: swing linear 5s infinite;
+  transform-origin: center -50px 0;
 }
 .white-book{
   width: 80%;
   margin-left: 10%;
+  border: 3px solid black;
+  background-image:url(../img/wood-texture_00005.jpg);
+  border-style: dashed;
+  border-radius: 20px;
 }
 .eyecatch{
   margin-top:0%;
-  height: auto;
+  height: 100vh;
 }
 .eyecatch-title{
   width: 30%;
@@ -183,7 +224,7 @@ p{
   margin-top: 10%;
   width: 100%;
   height: 40%;
-  border: 3px solid #754620;
+  border: 3px solid black;
   border-radius: 20px;
 }
 .book-vertical{
@@ -195,23 +236,50 @@ p{
   font-size: 20px;
 }
 .eyecatch-word{
-  color: #AD1E1E;
+  color: #754620;
   position: absolute;
-  top: 90%;
-  left: 10%;
+  font-size: 15px;
+  top: 5%;
+  right:15%;
+}
+.tsubaki{
+  width: 25%;
+  position: absolute;
+  top: 70%;
+}
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
 }
 .firstcontent{
   background-image: url(../img/bookshlef.jpg);
   color: white;
+  position: relative;
 }
 
-.firstcontent-inner{
+.firstcontent::before{
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: rgba(0,0,0,0.2);
 }
 .firstcontent-inner p{
+  position: relative;
+  z-index: 1;
   padding:10%;
   font-size: 25px;
   line-height: 2;
+}
+.firstcontent-inner h2{
+  position: relative;
+  z-index: 1;
 }
 .introduction{
   background-image:url(../img/books-and-human.jpg);
@@ -221,17 +289,39 @@ p{
   border-bottom-right-radius: 50px;
   border: 3px solid #754620;
   border-left: none;
+  color: white;
+  position: relative;
+}
+.introduction::before{
+  position: absolute;
+  background-color: rgba(0,0,0,0.2);
+   border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.introduction-title{
+  position: relative;
+  z-index: 1;
 }
 .introduction p{
   margin-top: 15%;
   margin-left: 5%;
   width: 30%;
+  position: relative;
+  z-index: 1;
 }
 .introduction-buttons{
   width: 30%;
   margin: 10% 35%;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 .introduction-buttons button{
   font-size: 20px;
@@ -239,6 +329,11 @@ p{
  background:none;
  border:white 1px solid;
 border-style: dashed;
+}
+.introduction-buttons button:hover{
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: rgba(0,0,0,0.5) 1px solid;
 }
 .meals-service{
   background-image:url(../img/sweets-and-book.jpg);
@@ -252,46 +347,87 @@ border-style: dashed;
   position: relative;
   color: white;
 }
+.meals-service::before{
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  content:"";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.2);
+}
 .meals-service h2{
   margin-left: -5%;
+  z-index: 1;
+  position: relative;
 }
 .meals-service-top{
   position: absolute;
+  z-index: 1;
   width: 30%;
   margin-left: 60%;
   margin-top: 8%;
 }
 .meals-service-bottom{
+  z-index: 1;
+  position: relative;
   margin-top: 40%;
   font-size: 15px;
 }
 .roomguide{
   margin-top: 5%;
   margin-bottom: 5%;
+  width: 90%;
+}
+.roomguide-title{
+  border-bottom: 2px solid #754620;
 }
 .roomguide-images{
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-bottom:  2px solid #754620;
 }
-.roomguide-images img{
-  width: 25%;
-  height: 200px;
+#slider-top{
+  width: 90%;
+  margin-left: 5%;
+}
+#slider-top img{
+  height: 650px;
   object-fit: cover;
+  border: 5px solid #754620;
+  border-radius: 20px;
+
+}
+#slider-bottom{
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+#slider-bottom img{
+  object-fit: cover;
+  width: 30%;
+  height: 150px;
+}
+.slick-slide{
+  margin:1% 0.1%;
 }
 .roomguide p{
-  margin: 5% 10%;
-  padding-bottom: 5%;
+  font-size: 15px;
   width: 80%;
-  border-bottom: 3px solid #754620;
-  border-style: dashed;
+  margin: 5% 10%;
 }
 .roomguide-service{
+  border-top: 3px solid #754620;
+  border-style: dashed;
+  padding-top: 5%;
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
 }
 .roomguide-service-content{
   width: 45%;
@@ -313,10 +449,11 @@ border-style: dashed;
 }
 .detail{
   width: 100%;
+
 }
 .detail-content{
   display: flex;
-  height: 90vh;
+  height: 100vh;
   width: 100%;
 }
 .detail-content-image{
@@ -388,6 +525,10 @@ border-style: dashed;
   border-radius: 20px;
   font-family: "Kokoro";
 }
+.resevation-button:hover{
+  background-color: #754620;
+  color: white;
+}
 footer{
   width: 50%;
   margin-left: 25%;
@@ -402,6 +543,74 @@ small{
   font-size: 12px;
 }
 #hamburger{
+  display: none;
+}
+
+.form{
+ width: 80%;
+ margin:5% 10%;
+ border: #754620 3px solid;
+  border-style: dashed;
+  padding: 5% 0%;
+}
+.form-item{
+  width: 90%;
+  display: flex;
+  margin: 10px 5%;
+}
+label{
+  width: 50%;
+  margin-right: 10%;
+  font-size: 20px;
+  border-bottom: #754620 1px solid;
+}
+.textarea-label{
+   border-bottom: #754620 1px solid;
+}
+.textarea-label-none{
+  border: none;
+}
+input{
+  width: 50%;
+  border: #754620 2px solid;
+  border-radius: 10px;
+  outline: none;
+}
+textarea{
+  width: 50%;
+  border: #754620 2px solid;
+  border-radius: 10px;
+  outline: none;
+}
+.sendbutton{
+  width: 30%;
+  margin-left: 35%;
+  padding: 5px;
+  color: #754620;
+  font-size: 25px;
+  background-color:rgba(0,0,0,0);
+  border: #754620 2px solid;
+  font-family: "Kokoro";
+}
+.sendbutton:hover{
+  background-color: #754620;
+  color: white;
+}
+.contactpage-title{
+  font-size: 30px;
+  margin:5%;
+  border-bottom: #754620 2px solid;
+}
+.googlemap{
+  width: 90%;
+  margin-left: 5%;
+}
+.address{
+  font-size: 15px;
+  width: 60%;
+  margin: 0 auto;
+}
+.hamburger-menu{
   display: none;
 }
 @media screen and (max-width : 768px){
@@ -448,6 +657,48 @@ small{
   #hamburger span:nth-of-type(3) {
     top: 30px; /* ハンバーガーメニューの3本目の棒 */
   }
+  #hamburger.active{
+     position: fixed;
+  }
+  #hamburger.active span:nth-of-type(1){
+      top: 20px;
+    transform: rotate(45deg);
+    background: white;
+  }
+  #hamburger.active span:nth-of-type(2){
+      opacity: 0;
+  }
+  #hamburger.active span:nth-of-type(3){
+      top: 20px;
+      transform: rotate(-45deg);
+      background: white;
+  }
+  .hamburger-menu.open{
+    display: block;
+    background-size: cover;
+    background-position: center center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 2;
+  }
+  .hamburger-menu-content{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 20%;
+  }
+  .js_smooth_scroll_hamburger{
+    display: block;
+    margin: 0 auto;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+  }
   .section{
     margin-top: 3%;
     padding-top: 5%;
@@ -460,8 +711,8 @@ small{
     display: none;
   }
   .white-book{
-    width: 100%;
-    margin-left: 0px;
+    width: 90%;
+    margin-left: 5%;
   }
   .eyecatch-title img{
     height: 35%;
@@ -470,9 +721,9 @@ small{
     right: 22%;
   }
   .eyecatch-word{
-    font-size: 18px;
-    top: 90%;
-    left: 5%;
+    font-size: 15px;
+    top: 87%;
+    left: 8%;
   }
   .firstcontent-inner p{
     font-size: 20px;
@@ -488,12 +739,10 @@ small{
     margin-top: 10px;
   }
   .meals-service-top{
-    background-color: rgba(0,0,0,0.2);
     width: 40%;
     margin-left: 50%;
   }
   .meals-service-bottom{
-    background: rgba(0,0,0,0.2);
     width: 70%;
   }
   .roomguide-service{
@@ -505,6 +754,10 @@ small{
   }
   .roomguide-service-content-left{
     border-right: none;
+  }
+  #slider-top,#slider-bottom{
+    width: 100%;
+    margin-left: 0%;
   }
   .detail{
     height: 300vh;
@@ -539,6 +792,7 @@ small{
     width: 60%;
     margin-left: 20%;
   }
+
 }
 
 

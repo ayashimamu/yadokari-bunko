@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>やどかり文庫</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 </head>
 <body>
   <div class="leftcontent">
@@ -24,13 +25,25 @@
         とっておきの一冊と出会う場所。
       </p>
       </div>
+      <img class="tsubaki" src="img/tsubaki-new.png" alt="">
       <div id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
+      <div class="hamburger-menu">
+        <div class="hamburger-menu-content">
+          <button class="js_smooth_scroll_hamburger"data-scroll-target=".eyecatch">Home</button>
+          <button class="js_smooth_scroll_hamburger"data-scroll-target=".firstcontent">やどかり文庫とは</button>
+          <button class="js_smooth_scroll_hamburger" data-scroll-target=".meals-service">お食事サービス</button>
+          <button class="js_smooth_scroll_hamburger" data-scroll-target=".roomguide">客室案内</button>
+          <button class="js_smooth_scroll_hamburger" data-scroll-target=".detail-content">昼間利用</button>
+          <button class="js_smooth_scroll_hamburger" data-scroll-target=".detail-content2">宿泊利用
+          </button>
+        </div>
+      </div>
    </div>
-   <div class="firstcontent section">
+   <div class="firstcontent scrollanime fadeInDown section">
      <div class="firstcontent-inner inner">
     <h2>本の世界に冒険しよう</h2>
     <p>貯蔵書数1万冊。心に響く名作だけを集めました。<br>
@@ -41,8 +54,8 @@
     </p>
     </div>
    </div>
-   <div class="introduction section inner">
-      <h2>やどかり文庫とは</h2>
+   <div class="introduction scrollanime fadeInDown section inner">
+      <h2 class="introduction-title">やどかり文庫とは</h2>
      <p>1万冊の本と、20のお部屋を<br>
        ご用意しております。<br>
        昼間は読書、お昼寝など休憩スペースとして。<br>
@@ -51,11 +64,11 @@
       ご利用いただけます。
      </p>
      <div class="introduction-buttons">
-       <button>昼間利用→</button>
-       <button>宿泊利用→</button>
+       <button class="js_smooth_scroll" data-scroll-target=".detail-content">昼間利用→</button>
+       <button class="js_smooth_scroll" data-scroll-target=".detail-content2">宿泊利用→</button>
      </div>
    </div>
-   <div class="meals-service section inner">
+   <div class="meals-service scrollanime fadeInDown section inner">
       <h2>お食事サービス</h2>
      <p class="meals-service-top">
       読書の時間のひと休み。<br>
@@ -72,13 +85,21 @@
           しております。
        </p>
    </div>
-   <div class="roomguide section inner">
-     <h2>客室案内</h2>
+   <div class="roomguide scrollanime fadeInDown section inner">
+     <h2 class="roomguide-title">客室案内</h2>
      <div class="roomguide-images">
+      <div class="slider" id="slider-top">
        <img src="img/sofa-and-light.jpg" alt="">
          <img src="img/bed-image.jpg" alt="">
          <img src="img/bookshelf2.jpg" alt="">
          <img src="img/shower-room.jpg" alt="">
+         </div>
+         <div id="slider-bottom">
+          <img src="img/sofa-and-light.jpg" alt="">
+          <img src="img/bed-image.jpg" alt="">
+          <img src="img/bookshelf2.jpg" alt="">
+          <img src="img/shower-room.jpg" alt="">
+         </div>
      </div>
       <p>120cm x 200cmのセミダブルサイズベッドのお部屋です。<br>
         電源もブックライトももちろん完備。一番ベーシックなタイプでお一人なら十分リラックスして過ごせる広さになっています。<br>
@@ -110,7 +131,7 @@
       </div>
    </div>
    <div class="detail section">
-     <div class="detail-content">
+     <div class="detail-content scrollanime fadeInDown">
        <img class="detail-content-image" src="img/daytime-img.jpg" alt="">
        <div class="detail-content-sentence">
          <h3>DayTime</h3>
@@ -150,7 +171,7 @@
         </p>
        </div>
      </div>
-     <div class="detail-content2">
+     <div class="detail-content2 scrollanime fadeInDown">
       <div class="detail-content-sentence detail-content-sentence2">
         <h3>宿泊</h3>
         <p class="stay-top">
@@ -172,7 +193,7 @@
      </div>
    </div>
    <div class="resevation">
-    <button class="resevation-button">ご予約はこちらから→</button>
+    <a href="contact.html"><button class="resevation-button">ご予約はこちらから→</button></a>
     </div>
     <hr>
     <footer>
@@ -187,15 +208,20 @@
     <h1>やどかり文庫</h1>
     <div class="rightcontent-menu">
       <p class="mokuji">目次</p>
-      <div class="mokuji-contents">
-      <button class="mokuji-item">やどかり文庫とは</button>
-      <button class="mokuji-item">お食事サービス</button>
-      <button class="mokuji-item">客室案内</button>
-      <button class="mokuji-item">昼間利用</button>
-      <button class="mokuji-item">宿泊利用</button>
-      </div>
-    </div>
+        <div class="mokuji-contents">
+        <button class="mokuji-item js_smooth_scroll" data-scroll-target=".firstcontent">やどかり文庫とは</button>
+        <button class="mokuji-item js_smooth_scroll" data-scroll-target=".meals-service">お食事サービス</button>
+        <button class="mokuji-item js_smooth_scroll" data-scroll-target=".roomguide">客室案内</button>
+        <button class="mokuji-item js_smooth_scroll" data-scroll-target=".detail-content">昼間利用</button>
+        <button class="mokuji-item js_smooth_scroll" data-scroll-target=".detail-content2">宿泊利用</button>
+        </div>
+        <img class="sns-icons" src="img/iconos_social_media.jpg" alt="">
+        </div>
     </div>
   </div>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
